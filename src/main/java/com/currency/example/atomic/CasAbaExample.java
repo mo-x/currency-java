@@ -1,15 +1,19 @@
 package com.currency.example.atomic;
 
+import com.currency.annoations.ThreadSafe;
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * ABA问题模拟，线程并发中，导致ABA问题，解决方案是使用|AtomicMarkableReference
  * 请参看相应的例子：AtomicStampedReferenceTest、AtomicMarkableReferenceTest
  */
-public class AtomicReferenceABATest {
+@Slf4j
+@ThreadSafe
+public class CasAbaExample {
 
-    public final static AtomicReference<String> ATOMIC_REFERENCE = new AtomicReference<
-            >("abc");
+    public final static AtomicReference<String> ATOMIC_REFERENCE = new AtomicReference<>("abc");
 
     public static void main(String[] args) {
         for (int i = 0; i < 100; i++) {
@@ -21,13 +25,14 @@ public class AtomicReferenceABATest {
                     e.printStackTrace();
                 }
                 if (ATOMIC_REFERENCE.compareAndSet("abc", "abc2")) {
-                    System.out.println("我是线程：" + num + ",我获得了锁进行了对象修改！");
+                    log.info("线程{}获取锁对对象进行了修改", num);
                 }
             }).start();
         }
+
         new Thread(() -> {
             while (!ATOMIC_REFERENCE.compareAndSet("abc2", "abc")) {
-                System.out.println("已经改为原始值！");
+                log.info("已经修改为原始值");
             }
         }).start();
     }
