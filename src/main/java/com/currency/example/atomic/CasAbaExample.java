@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicReference;
 @ThreadSafe
 public class CasAbaExample {
 
-    public final static AtomicReference<String> ATOMIC_REFERENCE = new AtomicReference<>("abc");
+    private final static AtomicReference<String> ATOMIC_REFERENCE = new AtomicReference<>("abc");
 
     public static void main(String[] args) {
         for (int i = 0; i < 100; i++) {
