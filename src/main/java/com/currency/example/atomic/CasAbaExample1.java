@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 @Slf4j
 @ThreadSafe
-public class CasAbaExample {
+public class CasAbaExample1 {
 
     private final static AtomicReference<String> ATOMIC_REFERENCE = new AtomicReference<>("abc");
 
