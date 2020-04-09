@@ -4,6 +4,10 @@ import com.currency.annoations.NotThreadSafe;
 
 import java.util.Vector;
 
+/**
+ * java.lang.ArrayIndexOutOfBoundsException: Array index out of rang
+ *
+ */
 @NotThreadSafe
 public class VectorExample2 {
 

@@ -43,5 +43,6 @@ public class SynchronizedExample2 {
         executorService.execute(() -> {
             SynchronizedExample2.test2(2);
         });
+
     }
 }
