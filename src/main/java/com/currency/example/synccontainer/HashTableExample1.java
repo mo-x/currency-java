@@ -1,12 +1,10 @@
-package com.currency.example.syncContainer;
+package com.currency.example.synccontainer;
 
 import com.currency.annoations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Hashtable;
-import java.util.List;
 import java.util.Map;
-import java.util.Vector;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

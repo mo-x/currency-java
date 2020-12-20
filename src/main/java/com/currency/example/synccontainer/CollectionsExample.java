@@ -1,4 +1,4 @@
-package com.currency.example.syncContainer;
+package com.currency.example.synccontainer;
 
 import com.currency.annoations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
